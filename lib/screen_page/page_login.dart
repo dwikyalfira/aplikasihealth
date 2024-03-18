@@ -28,7 +28,7 @@ class _PageLoginState extends State<PageLogin> {
         isLoading = true;
       });
       http.Response res = await http.post(
-        Uri.parse("http://localhost/kamusDb/login.php"),
+        Uri.parse("http://localhost/aplikasihealth/login.php"),
         body: {
           "username": username.text,
           "password": password.text,
@@ -45,6 +45,8 @@ class _PageLoginState extends State<PageLogin> {
           data.value ?? 0,
           data.id ?? "",
           data.username ?? "",
+          data.fullname ?? "",
+          data.email ?? "",
         );
 
         Navigator.pushAndRemoveUntil(

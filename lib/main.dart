@@ -1,5 +1,6 @@
 import 'package:aplikasi_health/screen_page/page_login.dart';
 import 'package:aplikasi_health/screen_page/page_pegawai.dart';
+import 'package:aplikasi_health/screen_page/page_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:aplikasi_health/screen_page/splash_screen.dart';
 
@@ -57,7 +58,7 @@ class _State extends State<PageHome> with SingleTickerProviderStateMixin {
   void initState() {
     // TODO: implement initState
     super.initState();
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -65,7 +66,7 @@ class _State extends State<PageHome> with SingleTickerProviderStateMixin {
     return Scaffold(
       body: TabBarView(
         controller: tabController,
-        children: const [PageTabView(), PageTabView(), PageListUser()],
+        children: const [PageTabView(), PageTabView(), PagePegawai(), PageProfile()],
       ),
       bottomNavigationBar: BottomAppBar(
         height: 81,
@@ -76,16 +77,20 @@ class _State extends State<PageHome> with SingleTickerProviderStateMixin {
             controller: tabController,
             tabs: const [
               Tab(
-                text: "Form Registrasi",
-                icon: Icon(Icons.input),
+                text: "Home",
+                icon: Icon(Icons.home_rounded),
               ),
               Tab(
-                text: "Gallery Photos",
-                icon: Icon(Icons.photo_album),
+                text: "Galeri",
+                icon: Icon(Icons.insert_photo_rounded),
               ),
               Tab(
-                text: "News",
-                icon: Icon(Icons.list),
+                text: "Pegawai",
+                icon: Icon(Icons.supervised_user_circle_rounded),
+              ),
+              Tab(
+                text: "Profil",
+                icon: Icon(Icons.person),
               ),
             ]),
       ),
