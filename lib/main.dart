@@ -1,3 +1,5 @@
+import 'package:aplikasi_health/screen_page/page_login.dart';
+import 'package:aplikasi_health/screen_page/page_pegawai.dart';
 import 'package:flutter/material.dart';
 import 'package:aplikasi_health/screen_page/splash_screen.dart';
 
@@ -32,7 +34,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: PageLogin(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -62,7 +65,7 @@ class _State extends State<PageHome> with SingleTickerProviderStateMixin {
     return Scaffold(
       body: TabBarView(
         controller: tabController,
-        children: const [PageTabView(), PageTabView(), PageTabView()],
+        children: const [PageTabView(), PageTabView(), PageListUser()],
       ),
       bottomNavigationBar: BottomAppBar(
         height: 81,

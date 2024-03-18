@@ -49,7 +49,7 @@ class _PageLoginState extends State<PageLogin> {
 
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => PageTabView()),
+          MaterialPageRoute(builder: (context) => PageHome()),
               (route) => false,
         );
       } else {
