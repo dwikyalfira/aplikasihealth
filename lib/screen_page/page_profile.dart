@@ -23,10 +23,10 @@ class _PageProfileState extends State<PageProfile> {
       fullname = pref.getString("fullname") ?? '';
       username = pref.getString("username") ?? '';
       email = pref.getString("email") ?? '';
-      print('username $username');
-      print('fullname $fullname');
-      print('id $id');
-      print('$email');
+      // print('username $username');
+      // print('fullname $fullname');
+      // print('id $id');
+      // print('$email');
     });
   }
 
@@ -50,48 +50,75 @@ class _PageProfileState extends State<PageProfile> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (_) => const PageEditProfile()));
+                  builder: (_) => PageEditProfile(
+                    onProfileUpdate: (String newUsername, String newFullName, String newEmail, String newPassword) {
+                      // Implement the logic to update the profile with the new data
+                      setState(() {
+                        username = newUsername;
+                        fullname = newFullName;
+                        email = newEmail;
+                        // You may or may not want to update the password based on your application's requirements
+                      });
+                    },
+                  ),
+                ),
+              );
+
             },
           )
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircleAvatar(
+             CircleAvatar(
               radius: 50,
               backgroundColor: Colors.blue,
               child: CircleAvatar(
-                radius: 48,
-                backgroundImage: AssetImage('images/user.png'),
+                radius: 50,
+                backgroundColor: Colors.white,
+                child: Text(
+                  username?.isNotEmpty == true ? username![0].toUpperCase() : '?',
+                  style: const TextStyle(fontSize: 36, color: Colors.blueAccent),
+                ),
+                // backgroundImage: AssetImage('images/user.png'),
               ),
             ),
-            SizedBox(height: 20),
-            ListTile(
-              title: Text('Fullname',
+            const SizedBox(height: 20),
+            Card(
+              child: ListTile(
+                title:  Text('Fullname',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                subtitle: Text(fullname ?? ''),
+                leading: const Icon(CupertinoIcons.person),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title:  Text('Username',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                subtitle: Text(username ?? ''),
+                leading: const Icon(CupertinoIcons.personalhotspot),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title:  Text('ID',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                subtitle: Text(id ?? ''),
+                leading: const Icon(CupertinoIcons.number_circle),
+              ),
+            ),
+            Card(
+                child: ListTile(
+              title:  Text('Email',
                   style: TextStyle(fontWeight: FontWeight.bold)),
-              subtitle: Text(fullname ?? ''),
-              leading: Icon(CupertinoIcons.person),
-            ),
-            ListTile(
-              title: Text('Username',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-              subtitle: Text(username ?? ''),
-              leading: Icon(CupertinoIcons.personalhotspot),
-            ),
-            ListTile(
-              title: Text('ID', style: TextStyle(fontWeight: FontWeight.bold)),
-              subtitle: Text(id ?? ''),
-              leading: Icon(CupertinoIcons.number_circle),
-            ),
-            ListTile(
-              title: Text('Email', style: TextStyle(fontWeight: FontWeight.bold)),
               subtitle: Text(email ?? ''),
-              leading: Icon(CupertinoIcons.mail),
-            ),
-            SizedBox(height: 40),
+              leading: const Icon(CupertinoIcons.mail),
+            )),
+            const SizedBox(height: 40),
             ElevatedButton.icon(
               onPressed: () {
                 session.clearSession();
@@ -101,12 +128,13 @@ class _PageProfileState extends State<PageProfile> {
                   (route) => false,
                 );
               },
-              icon: Icon(Icons.logout_rounded),
-              label: Text('Logout'),
+              icon: const Icon(Icons.logout_rounded),
+              label: const Text('Logout'),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
-                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
               ),
             ),
           ],
@@ -115,5 +143,4 @@ class _PageProfileState extends State<PageProfile> {
     );
   }
 }
-
 
