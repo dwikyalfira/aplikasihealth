@@ -5,14 +5,14 @@ import 'package:http/http.dart' as http;
 
 import '../model/model_user.dart';
 
-class PageListUser extends StatefulWidget {
-  const PageListUser({super.key});
+class PagePegawai extends StatefulWidget {
+  const PagePegawai({super.key});
 
   @override
-  State<PageListUser> createState() => _PageListUserState();
+  State<PagePegawai> createState() => _PagePegawaiState();
 }
 
-class _PageListUserState extends State<PageListUser> {
+class _PagePegawaiState extends State<PagePegawai> {
   bool isLoading = true;
   List<ModelUser> listUser = [];
 
