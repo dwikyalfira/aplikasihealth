@@ -222,7 +222,7 @@ class _PageEditProfileState extends State<PageEditProfile> {
                 ),
                 obscureText: !isPasswordVisible,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: isLoading ? null : () {
                   if (_formKey.currentState!.validate()) { // Validate form

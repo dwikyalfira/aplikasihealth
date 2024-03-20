@@ -1,3 +1,4 @@
+import 'package:aplikasi_health/screen_page/page_list%20_berita.dart';
 import 'package:aplikasi_health/screen_page/page_login.dart';
 import 'package:aplikasi_health/screen_page/page_pegawai.dart';
 import 'package:aplikasi_health/screen_page/page_profile.dart';
@@ -50,18 +51,19 @@ class _State extends State<PageHome> with SingleTickerProviderStateMixin {
       child: Scaffold(
         body: TabBarView(
           controller: tabController,
-          children: const [PageTabView(), PageTabView(), PagePegawai(), PageProfile()],
+          children: const [PageListBerita(), PageTabView(), PagePegawai(), PageProfile()],
         ),
         bottomNavigationBar: BottomAppBar(
           elevation: 8,
+          height: 82,
           color: Colors.white,
           child: SizedBox(
-            height: kBottomNavigationBarHeight,
+            height: kBottomNavigationBarHeight, // Set the height to the default bottom navigation bar height
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 0),
               child: TabBar(
                 isScrollable: true,
-                labelColor: Colors.teal,
+                labelColor: Colors.blueAccent,
                 unselectedLabelColor: Colors.grey,
                 controller: tabController,
                 tabs: const [
@@ -86,6 +88,7 @@ class _State extends State<PageHome> with SingleTickerProviderStateMixin {
             ),
           ),
         ),
+
       ),
     );
   }

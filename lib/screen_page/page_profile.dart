@@ -112,20 +112,21 @@ class _PageProfileState extends State<PageProfile> {
             ),
             Card(
               child: ListTile(
-                title:  Text('ID',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                subtitle: Text(id ?? ''),
-                leading: const Icon(CupertinoIcons.number_circle),
-              ),
-            ),
-            Card(
-              child: ListTile(
                 title:  Text('Email',
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 subtitle: Text(email ?? ''),
                 leading: const Icon(CupertinoIcons.mail),
               ),
             ),
+            Card(
+              child: ListTile(
+                title:  Text('ID',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                subtitle: Text(id ?? ''),
+                leading: const Icon(CupertinoIcons.number_circle),
+              ),
+            ),
+
             const SizedBox(height: 40),
             SizedBox( // Wrap the ElevatedButton with SizedBox
               width: double.infinity, // Set width to match the width of the column
