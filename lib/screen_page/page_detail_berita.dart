@@ -12,7 +12,7 @@ class PageDetailBerita extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.blueAccent,
         title: Text(data!.judul),
       ),
       body: ListView(
@@ -27,7 +27,7 @@ class PageDetailBerita extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
-                  'http://localhost/aplikasihealth/gambar_berita/${data?.gambarBerita}',
+                  'http://localhost/aplikasihealth/gambar/${data?.gambarBerita}',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -44,7 +44,7 @@ class PageDetailBerita extends StatelessWidget {
             ),
             trailing: Icon(
               Icons.star,
-              color: Colors.orange,
+              color: Colors.blueAccent,
             ),
           ),
           Divider(),

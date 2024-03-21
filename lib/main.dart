@@ -1,6 +1,7 @@
+import 'package:aplikasi_health/screen_page/page_galery.dart';
 import 'package:aplikasi_health/screen_page/page_list%20_berita.dart';
 import 'package:aplikasi_health/screen_page/page_login.dart';
-import 'package:aplikasi_health/screen_page/page_pegawai.dart';
+import 'package:aplikasi_health/screen_page/page_list_pegawai.dart';
 import 'package:aplikasi_health/screen_page/page_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:aplikasi_health/screen_page/splash_screen.dart';
@@ -51,7 +52,7 @@ class _State extends State<PageHome> with SingleTickerProviderStateMixin {
       child: Scaffold(
         body: TabBarView(
           controller: tabController,
-          children: const [PageListBerita(), PageTabView(), PagePegawai(), PageProfile()],
+          children: const [PageListBerita(), PageGallery(), PageListPegawai(), PageProfile()],
         ),
         bottomNavigationBar: BottomAppBar(
           elevation: 8,
